@@ -1,4 +1,4 @@
-
+# Music Master
 This project was built under instruction of [Udemy's React JS and Redux - Mastering Web Apps](https://www.udemy.com/react-js-and-redux-mastering-web-apps/) course.
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
