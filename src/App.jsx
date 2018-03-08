@@ -48,7 +48,7 @@ class App extends Component {
               type="text"
               placeholder="Search for an Artist"
               value={this.state.query}
-              onChange={(e) => { this.setState({ query: e.target.value }); }}
+              onChange={(e) => { this.setState({ query: e.target.value }) }}
               onKeyPress={(e) => {
                 if (e.key === 'Enter') {
                   this.search();
@@ -60,12 +60,19 @@ class App extends Component {
             </InputGroup.Addon>
           </InputGroup>
         </FormGroup>
-        <Profile 
-          artist={this.state.artist}
-        />
-        <div className="Gallery">
-          Gallery
-        </div>
+        {
+          this.state.artist !== null
+          ? <div>
+              <Profile 
+                artist={this.state.artist}
+              />
+              <div className="Gallery">
+                Gallery
+              </div>
+            </div>
+          : <div></div>
+        }
+        
       </div>
     );
   }
