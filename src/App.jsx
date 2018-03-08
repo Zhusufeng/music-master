@@ -43,8 +43,7 @@ class App extends Component {
       .then(res => res.json())
       .then(json => {
         const { tracks } = json;
-        this.setState(tracks);
-        console.log(tracks);
+        this.setState({tracks});
       });
     });
   }
@@ -85,7 +84,6 @@ class App extends Component {
             </div>
           : <div></div>
         }
-        
       </div>
     );
   }
