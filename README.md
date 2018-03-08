@@ -3,6 +3,10 @@ This project was built under instruction of [Udemy's React JS and Redux - Master
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
+Useful Link: [How to Get Spotify Authorization Token](http://www.angular-city.com/2017/07/spotify-web-api-access.html)
+
+// TODO: Review main features presented/Link blog?
+
 ## Table of Contents
 
 - [Available Scripts](#available-scripts)
