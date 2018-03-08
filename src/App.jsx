@@ -12,6 +12,10 @@ class App extends Component {
 
   search () {
     console.log('this.state', this.state);
+    const BASE_URL = 'https://api.spotify.com/v1/search';
+    const q = this.state.query;
+    const FETCH_URL = `${BASE_URL}?q=${q}&type=artist&limit=1`;
+    console.log(FETCH_URL);
   }
 
   render () {
