@@ -15,18 +15,19 @@ class App extends Component {
     console.log('this.state', this.state);
     const BASE_URL = 'https://api.spotify.com/v1/search';
     const FETCH_URL = `${BASE_URL}?q=${this.state.query}&type=artist&limit=1`;
-    // const myHeaders = new Headers();
-
-    fetch(FETCH_URL, {
+    
+    const options = {
       method: 'GET',
       headers: {
         'Authorization': `Bearer ${token}`
       }, 
       mode: 'cors',
       cache: 'default'
-    })
-    .then(res => res.json())
-    .then(json => console.log(json));
+    };
+
+    fetch(FETCH_URL, options)
+      .then(res => res.json())
+      .then(json => console.log(json));
   }
 
   render () {
