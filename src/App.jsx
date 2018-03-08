@@ -9,14 +9,16 @@ class App extends Component {
     super(props);
     this.state = {
       query: '',
-      artist: null
+      artist: null,
+      tracks: []
     };
   }
 
   search () {
     console.log('this.state', this.state);
     const BASE_URL = 'https://api.spotify.com/v1/search';
-    const FETCH_URL = `${BASE_URL}?q=${this.state.query}&type=artist&limit=1`;
+    let FETCH_URL = `${BASE_URL}?q=${this.state.query}&type=artist&limit=1`;
+    const ALBUM_URL = 'https://api.spotify.com/v1/artists';
 
     const options = {
       method: 'GET',
@@ -33,6 +35,16 @@ class App extends Component {
       const artist = json.artists.items[0];
       console.log(artist);
       this.setState({artist});
+
+      FETCH_URL = `${ALBUM_URL}/${artist.id}/top-tracks?country=US&`;
+
+      fetch(FETCH_URL, options)
+      .then(res => res.json())
+      .then(json => {
+        const { tracks } = json;
+        this.setState({tracks});
+        console.log(tracks);
+      });
     });
   }
 
