@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 import { FormGroup, FormControl, InputGroup, Glyphicon } from 'react-bootstrap';
 import './App.css';
 import token from './spotify.config';
+import Profile from './Profile';
 
 class App extends Component {
   constructor (props) {
     super(props);
     this.state = {
-      query: ''
+      query: '',
+      artist: null
     };
   }
 
@@ -15,7 +17,7 @@ class App extends Component {
     console.log('this.state', this.state);
     const BASE_URL = 'https://api.spotify.com/v1/search';
     const FETCH_URL = `${BASE_URL}?q=${this.state.query}&type=artist&limit=1`;
-    
+
     const options = {
       method: 'GET',
       headers: {
@@ -26,8 +28,12 @@ class App extends Component {
     };
 
     fetch(FETCH_URL, options)
-      .then(res => res.json())
-      .then(json => console.log(json));
+    .then(res => res.json())
+    .then(json => {
+      const artist = json.artists.items[0];
+      console.log(artist);
+      this.setState({artist});
+    });
   }
 
   render () {
@@ -54,10 +60,9 @@ class App extends Component {
             </InputGroup.Addon>
           </InputGroup>
         </FormGroup>
-        <div className="Profile">
-          <div>Artist Picture</div>
-          <div>Artist Name</div>
-        </div>
+        <Profile 
+          artist={this.state.artist}
+        />
         <div className="Gallery">
           Gallery
         </div>
