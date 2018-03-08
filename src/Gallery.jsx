@@ -58,6 +58,11 @@ class Gallery extends Component {
                   className="track-img"
                   alt="Track"
                 />
+                <div className="track-play">
+                  <div className="track-play-inner">
+                    &#9654;
+                  </div>
+                </div>
                 <p className="track-text">
                   {track.name}
                 </p>
