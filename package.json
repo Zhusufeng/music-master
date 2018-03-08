@@ -1,6 +1,8 @@
 {
   "name": "music-master",
   "version": "0.1.0",
+  "description": "Search for a musician's top tracks with the Spotify API via Udemy course. See README.",
+  "author": "Lisa Gee",
   "private": true,
   "dependencies": {
     "react": "^16.2.0",
